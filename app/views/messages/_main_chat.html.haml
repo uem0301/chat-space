@@ -1,0 +1,39 @@
+.chat-main
+  .chat-main__group-info
+    .chat-main__group-info-group
+      .chat-main__group-info-group-name
+        test
+      %ul.chat-main__group-info-group-name-memberlist
+        Member:
+        %li.chat-main__group-info-group-name-member
+          hoge
+    .chat-main__group-info-editButon
+      = link_to "#", class: 'edit' do
+        Edit
+  .chat-main__message-list
+    .chat-main__message-list-messageBox
+      .chat-main__message-list-messageBox-messageInfo
+        .chat-main__message-list-messageBox-messageInfo-userName
+          hoge
+        .chat-main__message-list-messageBox-messageInfo-date
+          2019/11/20(Wed) 17:43:01
+      .chat-main__message-list-messageBox-message
+        .chat-main__message-list-messageBox-message-content
+          おはよう！
+    .chat-main__message-list-messageBox
+      .chat-main__message-list-messageBox-messageInfo
+        .chat-main__message-list-messageBox-messageInfo-userName
+          hoge
+        .chat-main__message-list-messageBox-messageInfo-date
+          2019/11/20(Wed) 17:43:34
+      .chat-main__message-list-messageBox-message
+        .chat-main__message-list-messageBox-message-content
+          今日は夜から雨
+  .chat-main__message-form
+    %form.chat-main__message-form-newMessage
+      .chat-main__message-form-newMessage-contens
+        %input.chat-main__message-form-newMessage-contens-inputText{"placeholder": "type a message", "type": "text"}
+        %label.chat-main__message-form-newMessage-contens-inputIcon{type: "image"}
+          = icon('far', 'image')
+          %input.files{type: "file"}
+      %input.chat-main__message-form-newMessage-submitBtn{"name": "commit","type": "submit", "value": "Send"}
