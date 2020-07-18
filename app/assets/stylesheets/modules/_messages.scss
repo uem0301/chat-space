@@ -75,6 +75,10 @@ a{
             font-size:20px;
             color:#333333;
             margin-top:35px;
+        &-member{
+              color: #999999;
+              font-size: 12px;
+        }
       }
     }
     &-editButon{
@@ -158,6 +162,9 @@ a{
           position: absolute;
           right: 10px;
           top: 14px;
+          .Hidden{
+            display: none;
+          }
           // &-image{
           //   line-height: 50px;
           //   font-size: 25px;
