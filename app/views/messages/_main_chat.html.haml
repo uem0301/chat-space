@@ -2,15 +2,16 @@
   .chat-main__group-info
     .chat-main__group-info-group
       .chat-main__group-info-group-name
-        test
-      %ul.chat-main__group-info-group-name-memberlist
+        = @group.name
+      .chat-main__group-info-group-name-member
         Member:
-        %li.chat-main__group-info-group-name-member
-          hoge
+        - @group.users.each do |user|
+          = user.name
     .chat-main__group-info-editButon
-      = link_to "#", class: 'edit' do
+      = link_to edit_group_path(@group), class: 'edit' do
         Edit
   .chat-main__message-list
+    = render @messages
     .chat-main__message-list-messageBox
       .chat-main__message-list-messageBox-messageInfo
         .chat-main__message-list-messageBox-messageInfo-userName
@@ -30,10 +31,10 @@
         .chat-main__message-list-messageBox-message-content
           今日は夜から雨
   .chat-main__message-form
-    %form.chat-main__message-form-newMessage
+    = form_with model: [@group, @message], html: {class: "chat-main__message-form-newMessage"}, local: true do |f|
       .chat-main__message-form-newMessage-contens
-        %input.chat-main__message-form-newMessage-contens-inputText{"placeholder": "type a message", "type": "text"}
-        %label.chat-main__message-form-newMessage-contens-inputIcon{type: "image"}
+        = f.text_field :content, class: 'chat-main__message-form-newMessage-contens-inputText', placeholder: 'type a message'
+        = f.label :image, class: 'chat-main__message-form-newMessage-contens-inputIcon' do
           = icon('far', 'image')
-          %input.files{type: "file"}
-      %input.chat-main__message-form-newMessage-submitBtn{"name": "commit","type": "submit", "value": "Send"}
+          = f.file_field :image, class: 'Hidden'
+      = f.submit 'Send', class: 'chat-main__message-form-newMessage-submitBtn'
