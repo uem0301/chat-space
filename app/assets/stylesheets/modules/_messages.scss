@@ -94,24 +94,25 @@ a{
     height:calc(100vh - 100px - 90px);
     background-color:#fafafa;
     padding: 35px 40px 0;
-    &__message-list-messageBox{
+    overflow: scroll;
+    &__messageBox{
       margin-bottom: 46px;
-      &-messageInfo{
+      &__messageInfo{
         display: flex;
-        &-userName{
+        &__userName{
           font-size: 16px;
           color:#333333;
           font-weight: bold;
         }
-        &-date{
+        &__date{
           font-size: 12px;
           color:#999999;
           padding-left: 10px;
         }
       }
-      &-message{
+      &__message{
         margin-top: 12px;
-        &-content{
+        &__content{
           font-size:14px;
           color: #434A54;
         }
